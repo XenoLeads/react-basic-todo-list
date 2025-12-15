@@ -20,25 +20,71 @@
 }
 
 /* Resets */
-.button{
+.button {
   background: none;
   outline: none;
   border: none;
+  color: inherit;
+  font-size: inherit;
+  font-weight: inherit;
   cursor: pointer;
 }
 
 /* Header */
-.header{
+.header {
   height: 10vh;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding:  0 1.2rem;
+  padding: 0 1.2rem;
   background-color: #1c1c1c;
 }
-.add-todo-button{
+.add-todo-button {
   display: flex;
   justify-content: stretch;
   align-items: stretch;
   height: 60%;
+}
+.todo-filters {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 1rem;
+  margin-top: 1rem;
+  padding: 0 0.4rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  gap: 0.6rem;
+}
+.todo-filter {
+  text-transform: capitalize;
+  background-color: rgb(71, 110, 133);
+  padding: 0.4rem 1rem;
+  font-size: 0.9rem;
+  height: 2rem;
+  border-radius: 0.2rem;
+  border: 0.125rem solid transparent;
+}
+.todo-filter.selected {
+  background-color: hsl(202, 30%, 50%);
+  border: 0.125rem solid white;
+}
+.dropdown-wrapper {
+  position: relative;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+select.todo-filter {
+  appearance: none;
+  padding-right: 2rem;
+}
+.dropdown-icon {
+  position: absolute;
+  height: 0.7rem;
+  padding-right: 0.4rem;
+}
+select.todo-filter > option {
+  color: white;
+  background-color: #1c1c1c;
 }
