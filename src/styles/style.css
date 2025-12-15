@@ -47,12 +47,17 @@
 }
 .todo-filters {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   margin: 0 1rem;
   margin-top: 1rem;
   padding: 0 0.4rem;
-  gap: 0.6rem;
+  gap: 2rem;
+}
+@media (min-width: 768px) {
+  .todo-filters {
+    justify-content: flex-start;
+  }
 }
 .todo-filter {
   text-transform: capitalize;
