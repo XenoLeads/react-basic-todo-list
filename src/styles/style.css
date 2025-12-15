@@ -99,11 +99,16 @@
   }
 }
 .todo-checkbox-text-wrapper {
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   gap: 0.4rem;
   flex: 1;
+}
+.todo-checkbox-text-wrapper > label {
+  height: 1.4rem;
+  aspect-ratio: 1/1;
 }
 .todo-checkbox {
   display: none;
@@ -113,7 +118,14 @@
   cursor: pointer;
 }
 .todo-state-icon {
+  position: absolute;
   height: 1.4rem;
+}
+.todo-state-icon.checked {
+  opacity: 0;
+}
+.todo-checkbox:checked ~ .todo-state-icon.checked {
+  opacity: 1;
 }
 .todo-remove-button {
   pointer-events: none;
@@ -152,6 +164,7 @@
 .todo-filter {
   transition: border-color var(--transition-time) ease;
 }
-.todo-remove-button {
+.todo-remove-button,
+.todo-state-icon.checked {
   transition: opacity var(--transition-time) ease;
 }

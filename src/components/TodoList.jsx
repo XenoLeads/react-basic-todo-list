@@ -26,7 +26,7 @@ function Todo({ todo, dispatch, selected_todo_id, on_click, latest_todo_id, rese
     <div className={`todo-item${selected_todo_id === todo.id ? " selected" : ""}`} data-id={todo.id} onClick={on_click}>
       <div className="todo-checkbox-text-wrapper">
         <label>
-          <img src={todo.checked ? checked_todo_icon : unchecked_todo_icon} alt="" className="todo-state-icon" />
+          <img src={unchecked_todo_icon} alt="" className="todo-state-icon unchecked" />
           <input
             type="checkbox"
             name="todo-checkbox"
@@ -40,6 +40,7 @@ function Todo({ todo, dispatch, selected_todo_id, on_click, latest_todo_id, rese
             }
             className="todo-checkbox"
           />
+          <img src={checked_todo_icon} alt="" className="todo-state-icon checked" />
         </label>
         <textarea
           name="todo-item-text"
