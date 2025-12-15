@@ -81,29 +81,33 @@ function filter_todos(todos, active_only = true) {
 function TodoList({ todos, dispatch, on_click, selected_todo_id, active_state_filter, latest_todo_id, reset_latest_todo_id }) {
   return (
     <div className="todo-list-container">
-      {active_state_filter && active_state_filter.name !== "all"
-        ? filter_todos(todos, active_state_filter.name === "active").map(todo => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              dispatch={dispatch}
-              selected_todo_id={selected_todo_id}
-              on_click={on_click}
-              latest_todo_id={latest_todo_id}
-              reset_latest_todo_id={reset_latest_todo_id}
-            />
-          ))
-        : todos.map(todo => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              dispatch={dispatch}
-              selected_todo_id={selected_todo_id}
-              on_click={on_click}
-              latest_todo_id={latest_todo_id}
-              reset_latest_todo_id={reset_latest_todo_id}
-            />
-          ))}
+      {active_state_filter && active_state_filter.name !== "all" && filter_todos(todos, active_state_filter.name === "active").length > 0 ? (
+        filter_todos(todos, active_state_filter.name === "active").map(todo => (
+          <Todo
+            key={todo.id}
+            todo={todo}
+            dispatch={dispatch}
+            selected_todo_id={selected_todo_id}
+            on_click={on_click}
+            latest_todo_id={latest_todo_id}
+            reset_latest_todo_id={reset_latest_todo_id}
+          />
+        ))
+      ) : active_state_filter && active_state_filter.name === "all" && todos.length > 0 ? (
+        todos.map(todo => (
+          <Todo
+            key={todo.id}
+            todo={todo}
+            dispatch={dispatch}
+            selected_todo_id={selected_todo_id}
+            on_click={on_click}
+            latest_todo_id={latest_todo_id}
+            reset_latest_todo_id={reset_latest_todo_id}
+          />
+        ))
+      ) : (
+        <p>No tasks found.</p>
+      )}
     </div>
   );
 }
