@@ -27,6 +27,11 @@ const intial_todos = [
   {
     id: crypto.randomUUID(),
     text: "This is another todo",
+    checked: true,
+  },
+  {
+    id: crypto.randomUUID(),
+    text: "This is yet another todo",
     checked: false,
   },
 ];
@@ -39,6 +44,9 @@ function reducer(todos, action) {
       const new_todos = [...todos];
       new_todos[index].checked = action.checked;
       return new_todos;
+    }
+    case "todo-deleted": {
+      return todos.filter(todo => todo.id !== action.id);
     }
   }
 }

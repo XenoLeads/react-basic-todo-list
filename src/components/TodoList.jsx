@@ -23,7 +23,15 @@ function Todo({ todo, dispatch }) {
         </label>
         <p className="todo-item-text">{todo.text}</p>
       </div>
-      <button className="button">
+      <button
+        className="button"
+        onClick={() => {
+          dispatch({
+            type: "todo-deleted",
+            id: todo.id,
+          });
+        }}
+      >
         <img src={remove_todo_icon} alt="" className="todo-remove-icon" />
       </button>
     </div>
