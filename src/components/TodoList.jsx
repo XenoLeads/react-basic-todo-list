@@ -49,6 +49,7 @@ function Todo({ todo, dispatch, selected_todo_id, on_click }) {
           rows={1}
           onInput={resize_textarea}
           ref={textarea_ref}
+          spellCheck="false"
         ></textarea>
       </div>
       <button
