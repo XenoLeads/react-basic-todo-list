@@ -139,3 +139,14 @@
 .todo-item-text:focus {
   border: 0.1rem solid rgba(255, 255, 255, 0.6);
 }
+
+/* Transitions */
+:root {
+  --transition-time: 0.25s;
+}
+.todo-filter {
+  transition: border-color var(--transition-time) ease;
+}
+.todo-remove-button {
+  transition: opacity var(--transition-time) ease;
+}
