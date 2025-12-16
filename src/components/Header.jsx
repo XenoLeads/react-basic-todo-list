@@ -5,7 +5,7 @@ function Header({ create_new_todo }) {
     <div className="header">
       <h1>Todo</h1>
       <button className="button add-todo-button" onClick={create_new_todo}>
-        <img src={add_button_icon} alt="add todo" className="add-button-icon" draggable={false} />
+        <img src={add_button_icon} alt="add todo" className="add-button-icon" draggable="false" />
       </button>
     </div>
   );
