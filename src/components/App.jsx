@@ -104,10 +104,21 @@ function App() {
     if (input.closest(".todo-item") === null) setSelectedTodoId(null);
   }, []);
 
+  const handle_keypress = useCallback(
+    event => {
+      if (event.key === "Delete" && selectedTodoId) dispatch({ type: "todo-deleted", id: selectedTodoId });
+    },
+    [selectedTodoId]
+  );
+
   useEffect(() => {
     document.addEventListener("click", handle_outside_click);
-    return () => document.removeEventListener("click", handle_outside_click);
-  }, [handle_outside_click]);
+    document.addEventListener("keypress", handle_keypress);
+    return () => {
+      document.removeEventListener("click", handle_outside_click);
+      document.removeEventListener("keypress", handle_keypress);
+    };
+  }, [handle_outside_click, handle_keypress]);
 
   return (
     <>
