@@ -1,4 +1,5 @@
 import { useState, useEffect, useReducer, useRef, useCallback } from "react";
+import storage from "../storage.js";
 import Header from "./Header";
 import Filters from "./Filters";
 import TodoList from "./TodoList";
@@ -18,23 +19,7 @@ const state_filters = [
   },
 ];
 
-const intial_todos = [
-  {
-    id: crypto.randomUUID(),
-    text: "This is a todo",
-    checked: false,
-  },
-  {
-    id: crypto.randomUUID(),
-    text: "This is another todo",
-    checked: true,
-  },
-  {
-    id: crypto.randomUUID(),
-    text: "This is yet another todo",
-    checked: false,
-  },
-];
+const intial_todos = storage.get();
 
 function get_active_state_filter(id) {
   const index = state_filters.findIndex(filter => filter.id === id);
@@ -72,6 +57,10 @@ function App() {
   const [todos, dispatch] = useReducer(reducer, intial_todos);
   const [selectedTodoId, setSelectedTodoId] = useState(null);
   const latestTodoId = useRef(null);
+
+  useEffect(() => {
+    storage.save(todos);
+  }, [todos]);
 
   function handle_state_filter_click(id) {
     if (![1, 2, 3].includes(parseInt(id))) return;
