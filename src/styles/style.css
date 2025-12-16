@@ -87,6 +87,7 @@
   gap: 1rem;
   padding: 1rem;
   border: 0.15rem solid transparent;
+  border-radius: 0.4rem;
 }
 .todo-item.selected {
   border-color: rgba(255, 255, 255, 0.6);
