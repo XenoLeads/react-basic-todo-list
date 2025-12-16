@@ -184,10 +184,6 @@
   border: 0.15rem solid transparent;
   border-radius: 100%;
 }
-.add-todo-button:hover .add-button-icon {
-  filter: brightness(110%);
-  border-color: rgba(255, 255, 255, 0.2);
-}
 .add-todo-button:active .add-button-icon {
   filter: brightness(120%);
   border-color: rgba(255, 255, 255, 0.6);
@@ -201,6 +197,10 @@
   border-color: rgba(255, 255, 255, 0.4);
 }
 @media (pointer: fine) {
+  .add-todo-button:hover .add-button-icon {
+    filter: brightness(110%);
+    border-color: rgba(255, 255, 255, 0.2);
+  }
   .todo-checkbox-text-wrapper > label:not(:has(.todo-checkbox:checked)):hover > .todo-state-icon.checked {
     opacity: 0.4;
   }
