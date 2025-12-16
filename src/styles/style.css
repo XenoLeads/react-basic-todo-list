@@ -192,12 +192,15 @@
   background-color: hsl(202, 30%, 50%);
   border-color: rgba(255, 255, 255, 0.4);
 }
-.todo-checkbox-text-wrapper > label:not(:has(.todo-checkbox:checked)):hover > .todo-state-icon.checked {
-  opacity: 0.4;
+@media (pointer: fine) {
+  .todo-checkbox-text-wrapper > label:not(:has(.todo-checkbox:checked)):hover > .todo-state-icon.checked {
+    opacity: 0.4;
+  }
+  .todo-checkbox-text-wrapper > label:not(:has(.todo-checkbox:checked)):active > .todo-state-icon.checked {
+    opacity: 0.6;
+  }
 }
-.todo-checkbox-text-wrapper > label:not(:has(.todo-checkbox:checked)):active > .todo-state-icon.checked {
-  opacity: 0.6;
-}
+
 .todo-remove-button {
   padding: 0.4rem 1rem;
   border-radius: 0.4rem;
