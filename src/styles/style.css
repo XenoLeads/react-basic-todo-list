@@ -154,7 +154,7 @@
   width: 100%;
 }
 .todo-item-text:focus {
-  border: 0.1rem solid rgba(255, 255, 255, 0.6);
+  border-color: rgba(255, 255, 255, 0.6);
 }
 
 /* Transitions */
@@ -167,4 +167,19 @@
 .todo-remove-button,
 .todo-state-icon.checked {
   transition: opacity var(--transition-time) ease;
+}
+
+/* Hover and Active Transitions */
+.add-button-icon {
+  transition: filter var(--transition-time) ease, border-color var(--transition-time) ease;
+  border: 0.15rem solid transparent;
+  border-radius: 100%;
+}
+.add-todo-button:hover .add-button-icon {
+  filter: brightness(110%);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+.add-todo-button:active .add-button-icon {
+  filter: brightness(120%);
+  border-color: rgba(255, 255, 255, 0.6);
 }
